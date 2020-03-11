@@ -1,0 +1,308 @@
+<template>
+  <!-- eslint-disable max-len -->
+  <div class="home">
+    <div class="row">
+      <div class="col-sm-12">
+        <div
+          id="carouselExampleControls"
+          class="carousel slide"
+          data-ride="carousel"
+        >
+          <ol class="carousel-indicators">
+            <li
+              data-target="#carouselExampleIndicators"
+              data-slide-to="0"
+              class="active"
+            ></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="d-block w-100 img-fluid"
+                style="width:100%;height:300px"
+                src="../assets/wallpaper1.png"
+                alt="First slide"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                style="width:100%;height:300px"
+                src="../assets/wallpaper2.jpg"
+                alt="Second slide"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                style="width:100%;height:300px"
+                src="../assets/wallpaper3.jpg"
+                alt="Third slide"
+              />
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#carouselExampleControls"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carouselExampleControls"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="row">
+    <div class="col-sm-12 col-md-5">
+      <h5 class="card-header"> La carte des centres de developpement communautaire</h5>
+    </div>
+      <div class="col-sm-12 col-md-8"       id="svg"
+  :style="{ 'background-image': 'url(' + style + ')'}">
+        <svg
+          baseProfile="tiny"
+          fill="#1b9493"
+          stroke="#ffffff"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          version="1.2"
+          height="300"
+          viewBox="0 0 1000 1100"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <path
+            @click="getInfo(2)"
+            @mouseover="hoverIn('2')"
+            @mouseout="hoverOut('2')"
+            d="M861.6 795.8l-158.5 249.2-9.3-3.3-6 5.2-6 7.4-8.8 3.2-7.9-1.3-14.7-4.3-24.8-2.5-13.3-3-10.1-8.6-15.1-33.1-11.5-4.4-14.3-0.5-42.3-10.1-4.5 0.3 3-62.9 7.6-16.7 48.2-27.9 75.8-44.7 18.6-15 28.7-52.6 87.3-17.6 18.8 7.6 59.1 35.6z"
+            id="2"
+            name="Ali Sabieh"
+          />
+          <path
+            @click="getInfo(3)"
+            @mouseover="hoverIn('3')"
+            @mouseout="hoverOut('3')"
+            d="M852.2 714.1l-73.2 13.8-22 0.1-34.4-3.6-32.5-34.7-0.7-1.5 83.5-1.1 12.8-2.6 11.9 0.4 12.9 7.7 11.8-2.8 6.2-8.4 4.6-8.1 6.4-2 3.6 6.4 8.6 35.7 0.5 0.7z"
+            id="3"
+            name="Djibouti"
+          />
+          <path
+            @click="getInfo(4)"
+            @mouseover="hoverIn('4')"
+            @mouseout="hoverOut('4')"
+            d="M469.3 710.6l0.3 14.6 3.4 12.5 19.7 7.6 11.9 11 7.3 2.9 8.3-1.6 9.5-8.8 6.7-2.1 10.8 4 5.8 1.2 5.4-2.9 3.5-7.8-4.1-4.6-6.1-3.2-3.1-3.4 5.3-10.1 12-8.4 27.3-10.7 40.4-4.8 13-3.4 6.2-4.6 4.8-5.1 4.9-1.8 6.7 5 4.9 2.4 15.3-0.3 0.7 1.5 32.5 34.7 34.4 3.6 22-0.1 73.2-13.8 6.4 9.2 6.8 5.1 18.6 10 8.6 8.5-31 48.9-59.1-35.6-18.8-7.6-87.3 17.6-28.7 52.6-18.6 15-75.8 44.7-123.9-21.9-49-72.6-15.2-48.4-13.5-68.6-2.3-25.6 21.1 26 9.1 7.3 69.7 31.9z"
+            id="4"
+            name="Arta"
+          />
+          <path
+            @click="getInfo(5)"
+            @mouseover="hoverIn('5')"
+            @mouseout="hoverOut('5')"
+            d="M369.4 645.4l2.3 25.6 13.5 68.6 15.2 48.4 49 72.6 123.9 21.9-48.2 27.9-7.6 16.7-3 62.9-23 1.8-53.8 16.5-39.7 26.3-12.9 6.1-9-0.5-9.2-3.2-13.6-2.2-19.5 6.7-20.9 0.6-21.4 9.7-8 2-11.4-0.1-30.7-7.1-32.9 3.6-16 5.3-18.6 18.9-16.5 4.2-33.8 1.4-4.1 1.7-5.9 5.3-5.2-0.8-3.5-3-3.6-6.7-70.6-14.4-14.9-5.7-7.5-9.8 10.7-17.4 3.8-26 0.2-13.9 33.7-26.6 19.2-23.1 4.7-21.2-10-12.9-40.1-30.3-7.9-3.6-5.7-51.8-15.5-70.1-0.4-33.3 17.7-55.4 8.2-46.3 9.4-19.4 8.9-6 23.4-10.3 6-7.9 3.3-8.7 5.1-3.6 6.7-2 8.4-4 8.2-6.4 6.6-6.8 22.9-32.6 9.8 1.9 96.9 23.3 24.8 9.9 102.1 103.3z"
+            id="5"
+            name="Dikhil"
+          />
+          <path
+            @click="getInfo(6)"
+            @mouseover="hoverIn('6')"
+            @mouseout="hoverOut('6')"
+            d="M800.1 532.7l-14.2-14.4-5-7.6-16.9-36.5-6.9-11-123.4-137.6-15.3-4.3-11.7-6-29.7-25.6-7.6-9.5-14-28.8-1.4-4.7 0.8-9.3 4-6.8 8-6.8 1.8-12.2-1.5-9.9 18.9-5.3 8.1-11.8 5.1-5.5 17.9-3.4 7.4-4 3.5-16.5-5.6-19.2-2.1-18.2 26.1-24.7 13.9-33.2 10-8.8 5.3 0.7 7.4 5.9 6.2-0.6 129.9-56.1 9.7 6.6 5.6 10.8 4.7 12.1 6.3 10.4 58.5 67 14.1 22.6 8.5 8.9 9.3 2.6 9.8-6.8 0 21.6 1.1 10.3 3 10.3 4.7 8.4 5.4 6.7 4.4 7.5 1.8 10.8 0.7 23.4 1.9 12.4 3.7 8.5 22.3 31.3 1.8 10.3-1.8 35.6 4.4 46.1-3.2 19.6-8.7 18.2-13 15.1-15.9 10.3-4.7 1.4-16.1 2.8-16.3 8.3-11.9 2.2-25.7 0.6-11.3 3.1-19.5 13.9-45.9 55.3-6.7 3.5z"
+            id="6"
+            name="Obock"
+          />
+          <path
+            @click="getInfo(7)"
+            @mouseover="hoverIn('7')"
+            @mouseout="hoverOut('7')"
+            d="M567.1 201.7l1.5 9.9-1.8 12.2-8 6.8-4 6.8-0.8 9.3 1.4 4.7 14 28.8 7.6 9.5 29.7 25.6 11.7 6 15.3 4.3 123.4 137.6 6.9 11 16.9 36.5 5 7.6 14.2 14.4-10 5.2-2.7 4.2-2.3 8.5-3.2 3.6-8.4 3.1-32.7 1.5-8.5 3.2-9 6.3-8.9 4.1-16.2-6-11.4 1.9-55.6 19.9-15.7 9.6-13.8 14.8-41.8 76.7-4 5.3-5.6 3.1-18.6 5.5-5.5 0.3-14.3-2.7-15.8 0.6-5-0.6-3.3-2.3-5.7-8-3.2-2.1-13 0.8-7 5.1-0.1 4.2 7.8-1.8 2.7 13.9-69.7-31.9-9.1-7.3-21.1-26-102.1-103.3-24.8-9.9-96.9-23.3-9.8-1.9 49.4-70.5 24.2-45.2 6.6-7.3 14.1-6.9 4.7-7.6 9.1-22.2 79.6-109.4 18.3-40 36-48.7 30.8-33.3 10.5-1.9 16.2 4.4 27.4 12.3 93.7 83.3 7.9-11.5 2.8-0.8z"
+            id="7"
+            name="Tadjourah"
+          />
+          <circle cx="686.3" cy="176.3" id="8" />
+          <circle cx="830.4" cy="697.1" id="9" />
+          <circle cx="637.8" cy="586.3" id="10" />
+        </svg>
+      </div>
+      <div class="col-sm-12 col-md-3">
+        <div class="card" style="width: 18rem;" v-show="hover">
+          <h6 class="card-header">{{ result.ville }}</h6>
+          <img
+            :src="result.map"
+            :width="result.width"
+            :height="result.height"
+            usemap="#planetmap"
+            class="card-img-top"
+          />
+
+          <map name="planetmap">
+            <area
+              v-for="(area, index) in result.areas"
+              :key="index"
+              shape="poly"
+              :coords="area.coord"
+              href
+              :alt="area.name"
+            />
+          </map>
+          <div class="card-footer">
+              {{ result.description }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-3 ">
+        <img src="../assets/hassan.jpg" class="card-image" />
+      </div>
+      <div class="col-sm-12 col-md-9 ">
+        <h4 class="card-header">
+          Mot de son Excellence Mr. Hassan Mohamed Kamil
+        </h4>
+        <p class="card-body">
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words, consectetur, from a Lorem Ipsum passage, and going
+          through the cites of the word in classical literature, discovered the
+          undoubtable source. Lorem Ipsum comes from sections 1.10.32 and
+          1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
+          Evil) by Cicero, written in 45 BC. This book is a treatise on the
+          theory of ethics, very popular during the Renaissance. The first line
+          of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in
+          section 1.10.32. The standard chunk of Lorem Ipsum used since the
+          1500s is reproduced below for those interested. Sections 1.10.32 and
+          1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also
+          reproduced in their exact original form, accompanied by English
+          versions from the 1914 translation by H. Rackham.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <NewMenu></NewMenu>
+    </div>
+  </div>
+</template>
+
+<script>
+import NewMenu from "../components/news/NewMenu.vue";
+export default {
+  components: {
+    NewMenu
+  },
+  data: function() {
+    return {
+      infos: false,
+      result: {
+        ville: "",
+        description: "",
+        cityImage: "",
+        map: "",
+        width: "",
+        height: "",
+        areas: []
+      },
+      style: "",
+      hover: false,
+      info: [
+        {
+          ville: "Ali-Sabieh",
+          description: "Cette 'ville' est la 'ville' de",
+          cityImage: require("../assets/djibouti.jpg"),
+          id: 2
+        },
+        {
+          ville: "Djibouti",
+          description: "Cette 'ville' est la 'ville' de",
+          cityImage: require("../assets/djibouti.jpg"),
+          id: 3,
+          width: "800",
+          height: "453",
+          map: require("../assets/djibouti.jpg"),
+          areas: [{ name: "Djibouti", coord: "" }]
+        },
+        {
+          ville: "Arta",
+          description: "Cette 'ville' est la 'ville' de",
+          cityImage: require("../assets/arta.jpg"),
+          id: 4
+        },
+        {
+          ville: "Dikhil",
+          description: "Cette 'ville' est la 'ville' de",
+          cityImage: require("../assets/dikhil.jpg"),
+          id: 5
+        },
+        {
+          ville: "Obock",
+          description: "Obock au Nord du pays possede 7 CDC",
+          cityImage: require("../assets/obock.jpg"),
+          id: 6,
+          width: "300",
+          height: "340",
+          map: require("../assets/obockseul.jpg"),
+          areas: [{ name: "Obock", coord: "" }]
+        },
+        {
+          ville: "Tadjoura",
+          description: "Cette 'ville' est la 'ville' de",
+          cityImage: require("../assets/tadj.jpg"),
+          id: 7
+        }
+      ]
+    };
+  },
+  methods: {
+    hoverIn(id) {
+      this.infos = false;
+      this.info.forEach(element => {
+        if (element.id == id) {
+          this.result = element;
+          this.style = element.cityImage;
+        }
+      });
+      const path = document.getElementById(id);
+      path.style.fill = "#da2f0d";
+      this.hover = true;
+    },
+    hoverOut(id) {
+      const path = document.getElementById(id);
+      path.style.fill = "#1b9493";
+      this.hover = false;
+      this.style = "";
+    },
+    getInfo() {
+      this.$router.push({ path: '/obock' })
+
+    }
+  }
+};
+</script>
+
+<style lang="css" scoped>
+.land {
+  fill: #cccccc;
+  fill-opacity: 1;
+  stroke: white;
+  stroke-opacity: 1;
+  stroke-width: 0.5;
+}
+#svg {
+  background-repeat: repeat;
+  background-size: cover;
+}
+</style>

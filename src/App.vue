@@ -1,0 +1,55 @@
+<template>
+  <div id="app">
+    <div class="container-fluid">
+      <Header></Header>
+    </div>
+    <div class="container">
+      <router-view />
+    </div>
+    <div class="container-fluid">
+      <Footer></Footer>
+    </div>
+  </div>
+</template>
+<script>
+import Header from "./views/Header.vue";
+import Footer from "./views/Footer.vue";
+export default {
+  components: {
+    Header,
+    Footer
+  }
+};
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+.row {
+  margin-top: 20px;
+}
+.container {
+  background: white;
+}
+body {
+  background: blue;
+}
+</style>
