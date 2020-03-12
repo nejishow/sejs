@@ -2,12 +2,12 @@
   <b-container fluid class="wrapper">
     <b-row>
       <b-col cols="12" md="4">
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="../assets/logo.png" class="card-img" alt="..." />
+        <div class="row testwrap">
+          <div class="col-sm-12 text-center">
+            <img src="../assets/logo.png" class="card-img img-fluid test" alt="..." />
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
+          <div class="col-sm-12">
+            <div class="card-body text-center">
               <h5 class="card-title">SEJS</h5>
               <p class="card-text">
                 Promotion et épanouissement de la Jeunesse
@@ -56,4 +56,8 @@
 .wrapper {
 background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
 }
+.test{
+  width:30%;
+  height: auto;
+align-self: center;}
 </style>
