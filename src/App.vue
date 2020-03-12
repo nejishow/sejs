@@ -1,14 +1,11 @@
 <template>
-  <div id="app">
+  <div>
+    <Header></Header>
     <div class="container-fluid">
-      <Header></Header>
-    </div>
-    <div class="container">
       <router-view />
     </div>
-    <div class="container-fluid">
-      <Footer></Footer>
-    </div>
+
+    <Footer></Footer>
   </div>
 </template>
 <script>
@@ -43,13 +40,15 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-.row {
-  margin-top: 20px;
+[class^="col"] {
+  margin-top: 5px;
+  border-radius: 20px;
 }
-.container {
+.container-fluid {
   background: white;
 }
-body {
-  background: blue;
+.row {
+  margin-bottom: 30px;
+  justify-content: center;
 }
 </style>

@@ -21,11 +21,12 @@
           <area
             v-for="(ville, index) in cdc"
             :key="index"
+            href="#"
             shape="circle"
             :coords="ville.coord"
-            href
             :alt="ville.name"
             class="area"
+            @click="changeTown(ville.id)"
           />
         </map>
       </div>
@@ -43,61 +44,20 @@
             </md-toolbar>
 
             <md-list>
-              <md-list-item>
-                <md-icon>info</md-icon>
-                <span class="md-list-item-text">Description</span>
-              </md-list-item>
-
-              <md-list-item>
-                <md-icon>house</md-icon>
-                <span class="md-list-item-text">Infrastructure</span>
-              </md-list-item>
-              <md-list-item>
-                <md-icon>sports_soccer</md-icon>
-                <span class="md-list-item-text">Activités</span>
-              </md-list-item>
-              <md-list-item>
-                <md-icon>people_outline</md-icon>
-                <span class="md-list-item-text">Personel</span>
-              </md-list-item>
-
-              <md-list-item>
-                <md-icon>today</md-icon>
-                <span class="md-list-item-text">Horraires</span>
-              </md-list-item>
-              <md-list-item>
-                <md-icon>message</md-icon>
-                <span class="md-list-item-text">Communiqués</span>
+              <md-list-item
+                v-for="(item, index) in subject"
+                :key="index"
+                @click="changeSubject(index)"
+              >
+                <md-icon>{{ item.icon }} </md-icon>
+                <span class="md-list-item-text">{{ item.subject }} </span>
               </md-list-item>
             </md-list>
           </md-app-drawer>
 
           <md-app-content>
-            <div>
-              <h6 class="card-header text-left">Section</h6>
-              <p>Ici se place la description complete du CDC</p>
-            </div>
-            <div>
-              <h6 class="card-header text-left">Section</h6>
-              <p>Ici se place l'Infrastructure complete du CDC</p>
-            </div>
-            <div>
-              <h6 class="card-header text-left">Section</h6>
-              <p>Ici se place les activités du CDC</p>
-            </div>
-            <div>
-              <h6 class="card-header text-left">Section</h6>
-              <p>Ici se place le personnel complete du CDC</p>
-            </div>
-            <div>
-              <h6 class="card-header text-left">Section</h6>
-              <p>Ici se place les horraires du CDC</p>
-            </div>
-            <div>
-              <h6 class="card-header text-left">Section</h6>
-              <p>Ici se place les communiqués du CDC</p>
-            </div>
-            <button @click="test">test</button>
+            <h5 class="card-header">{{ choosenSubject }}</h5>
+            <p class="text-left">{{ choosenCDC[choosenSubject] }}</p>
           </md-app-content>
         </md-app>
       </div>
@@ -119,29 +79,55 @@ export default {
       ],
       cdc: [
         {
+          id: 2,
           name: "Khor-Angar",
           coord: "243, 126, 14",
-          description: "Ici se place la description complete du CDC",
-          activité: "ici les activités",
-          personel: "ici le personel",
-          horraires: "ici les horaires",
-          communiqués: "ici les communiqués"
+          Description: "Ici se place la description complete du CDC de Khor-Angar",
+          Activités: "ici les activités",
+          Infrastructure: "ici les infrastructures sont presentés",
+          Personel: "ici le personel",
+          Horraires: "ici les horaires",
+          Communiqués: "ici les communiqués"
         },
         {
+          id: 1,
           name: "Obock",
-          coord: "240, 275, 14"
+          coord: "240, 275, 14",
+          Description: "Ici se place la description complete du CDC d'Obock",
+          Activités: "ici les activités",
+          Infrastructure: "ici les infrastructures sont presentés",
+          Personel: "ici le personel",
+          Horraires: "ici les horaires",
+          Communiqués: "ici les communiqués"
         }
       ],
-      choosenCDC: this.cdc[0]
+      subject: [
+        { id: 1, icon: "info", subject: "Description" },
+        { id: 2, icon: "house", subject: "Infrastructure" },
+        { id: 3, icon: "sports_soccer", subject: "Activités" },
+        { id: 4, icon: "people_outline", subject: "Personel" },
+        { id: 5, icon: "today", subject: "Horraires" },
+        { id: 6, icon: "message", subject: "Communiqués" }
+      ],
+      choosenCDC: "",
+      choosenSubject: "Description"
     };
   },
   methods: {
-    test() {
-      console.log(this.cdc[0]);
+    changeSubject(index) {
+      this.choosenSubject = this.subject[index].subject;
     },
-    created() {
-
+    changeTown(id) {
+      this.cdc.forEach(element => {
+        if (element.id == id) {
+          this.choosenCDC = element;
+        }
+      });
     }
+  },
+  created() {
+    this.choosenCDC = this.cdc[0];
+    this.choosenCDC.subject = "Description";
   }
 };
 </script>
