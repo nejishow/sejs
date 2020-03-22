@@ -159,19 +159,8 @@
       </div>
       <div class="col-sm-12 col-md-3">
         <div class="card" style="width: 18rem;" v-show="hover">
-          <h6 class="card-header">{{ result.ville }}</h6>
-          <img :src="result.map" :width="result.width" :height="result.height" usemap="#planetmap" />
-
-          <map name="planetmap">
-            <area
-              v-for="(area, index) in result.areas"
-              :key="index"
-              shape="poly"
-              :coords="area.coord"
-              href
-              :alt="area.name"
-            />
-          </map>
+          <h6 class="card-header">{{ result.name }}</h6>
+          <img :src="result.map" usemap="#planetmap" style="width:304px;height:347px" />
           <div class="card-footer">{{ result.description }}</div>
         </div>
       </div>
@@ -185,6 +174,7 @@
 
 <script>
 import NewMenu from "../components/news/NewMenu.vue";
+import axios from "axios";
 export default {
   components: {
     NewMenu
@@ -192,68 +182,16 @@ export default {
   data: function() {
     return {
       infos: false,
-      result: {
-        ville: "",
-        description: "",
-        cityImage: "",
-        map: "",
-        width: "",
-        height: "",
-        areas: []
-      },
+      result: "",
       style: "",
       hover: false,
-      info: [
-        {
-          ville: "Ali-Sabieh",
-          description: "Cette 'ville' est la 'ville' de",
-          cityImage: require("../assets/djibouti.jpg"),
-          id: 2
-        },
-        {
-          ville: "Djibouti",
-          description: "Cette 'ville' est la 'ville' de",
-          cityImage: require("../assets/djibouti.jpg"),
-          id: 3,
-          width: "800",
-          height: "453",
-          map: require("../assets/djibouti.jpg"),
-          areas: [{ name: "Djibouti", coord: "" }]
-        },
-        {
-          ville: "Arta",
-          description: "Cette 'ville' est la 'ville' de",
-          cityImage: require("../assets/arta.jpg"),
-          id: 4
-        },
-        {
-          ville: "Dikhil",
-          description: "Cette 'ville' est la 'ville' de",
-          cityImage: require("../assets/dikhil.jpg"),
-          id: 5
-        },
-        {
-          ville: "Obock",
-          description: "Obock au Nord du pays possede 7 CDC",
-          cityImage: require("../assets/obock.jpg"),
-          id: 6,
-          width: "300",
-          height: "340",
-          map: require("../assets/obockseul.jpg"),
-          areas: [{ name: "Obock", coord: "" }]
-        },
-        {
-          ville: "Tadjoura",
-          description: "Cette 'ville' est la 'ville' de",
-          cityImage: require("../assets/tadj.jpg"),
-          id: 7
-        }
-      ]
+      info: []
     };
   },
   methods: {
     hoverIn(id) {
       this.infos = false;
+      this.result = [];
       this.info.forEach(element => {
         if (element.id == id) {
           this.result = element;
@@ -265,14 +203,31 @@ export default {
       this.hover = true;
     },
     hoverOut(id) {
+      this.result = [];
       const path = document.getElementById(id);
       path.style.fill = "#1b9493";
       this.hover = false;
       this.style = "";
     },
-    getInfo() {
-      this.$router.push({ path: "/obock" });
+    getInfo(id) {
+      this.info.forEach(element => {
+        if (element.id == id) {
+          this.$router.push({ path: "/town", query: { townId: element._id } });
+        }
+      });
     }
+  },
+  mounted() {
+    axios
+      .get("http://localhost:3000/towns")
+      .then(data => {
+        data.data.forEach(element => {
+          this.info.push(element);
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 };
 </script>

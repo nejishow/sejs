@@ -15,6 +15,11 @@ export default {
   components: {
     Header,
     Footer
+  },
+  methods: {
+    beforeEnter() {
+      this.$root.$emit("scrollBeforeEnter");
+    }
   }
 };
 </script>
