@@ -3,48 +3,40 @@
   <div class="home">
     <div class="row">
       <div class="col-sm-12">
-        <div
-          id="carouselExampleControls"
-          class="carousel slide"
-          data-ride="carousel"
-        >
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
-            <li
-              data-target="#carouselExampleIndicators"
-              data-slide-to="0"
-              class="active"
-            ></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
           </ol>
           <div class="carousel-inner">
-            <div class="carousel-item active">
+            <div class="carousel-item active text-center">
               <img
-                class="d-block w-100 carouImage "
-                style="width:100%;height:300px"
-                src="../assets/wallpaper1.png"
+                class="d-inline-block w-50 carouImage"
+                style="width:auto;height:300px"
+                src="../assets/banner1.jpg"
                 alt="First slide"
               />
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item text-center">
               <img
-                class="d-block w-100 carouImage"
+                class="d-inline-block w-50 carouImage"
                 style="width:100%;height:300px"
-                src="../assets/wallpaper2.jpg"
+                src="../assets/banner2.jpg"
                 alt="Second slide"
               />
             </div>
-            <div class="carousel-item ">
+            <div class="carousel-item text-center">
               <img
-                class="d-block w-100 carouImage"
+                class="d-inline-block w-50 carouImage"
                 style="width:100%;height:300px"
-                src="../assets/wallpaper3.jpg"
+                src="../assets/banner3.jpg"
                 alt="Third slide"
               />
             </div>
           </div>
           <a
-            class="carousel-control-prev"
+            class="carousel-control-prev bg-danger"
             href="#carouselExampleControls"
             role="button"
             data-slide="prev"
@@ -53,7 +45,7 @@
             <span class="sr-only">Previous</span>
           </a>
           <a
-            class="carousel-control-next"
+            class="carousel-control-next bg-primary"
             href="#carouselExampleControls"
             role="button"
             data-slide="next"
@@ -64,14 +56,12 @@
         </div>
       </div>
     </div>
-     <div class="row">
-      <div class="col-sm-12 col-md-3 ">
+    <div class="row">
+      <div class="col-sm-12 col-md-3">
         <img src="../assets/hassan.jpg" class="card-image" />
       </div>
-      <div class="col-sm-12 col-md-9 ">
-        <h4 class="card-header">
-          Mot de son Excellence Mr. Hassan Mohamed Kamil
-        </h4>
+      <div class="col-sm-12 col-md-9">
+        <h4 class="card-header">Mot de son Excellence Mr. Hassan Mohamed Kamil</h4>
         <p class="card-body">
           Contrary to popular belief, Lorem Ipsum is not simply random text. It
           has roots in a piece of classical Latin literature from 45 BC, making
@@ -94,9 +84,7 @@
     </div>
     <div class="row">
       <div class="col-sm-12 col-md-5">
-        <h5 class="card-header">
-          La carte des centres de developpement communautaire
-        </h5>
+        <h5 class="card-header">La carte des centres de developpement communautaire</h5>
       </div>
       <div
         class="col-sm-12 col-md-8"
@@ -172,12 +160,7 @@
       <div class="col-sm-12 col-md-3">
         <div class="card" style="width: 18rem;" v-show="hover">
           <h6 class="card-header">{{ result.ville }}</h6>
-          <img
-            :src="result.map"
-            :width="result.width"
-            :height="result.height"
-            usemap="#planetmap"
-          />
+          <img :src="result.map" :width="result.width" :height="result.height" usemap="#planetmap" />
 
           <map name="planetmap">
             <area
@@ -189,13 +172,11 @@
               :alt="area.name"
             />
           </map>
-          <div class="card-footer">
-            {{ result.description }}
-          </div>
+          <div class="card-footer">{{ result.description }}</div>
         </div>
       </div>
     </div>
-   
+
     <div class="row">
       <NewMenu></NewMenu>
     </div>
