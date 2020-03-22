@@ -154,7 +154,7 @@ export default {
     const townId = this.$route.query.townId;
 
     axios
-      .post("http://localhost:3000/getTown", {
+      .post("https://sejs-backend.herokuapp.com/getTown", {
         townId: townId
       })
       .then(data => {

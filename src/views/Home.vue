@@ -219,14 +219,13 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:3000/towns")
+      .get("https://sejs-backend.herokuapp.com/towns")
       .then(data => {
         data.data.forEach(element => {
           this.info.push(element);
         });
       })
-      .catch(error => {
-        console.log(error);
+      .catch(() => {
       });
   }
 };
